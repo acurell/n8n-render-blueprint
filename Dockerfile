@@ -7,3 +7,7 @@ ENV NODE_OPTIONS="--max-old-space-size=460"
 ENV NODE_FUNCTION_ALLOW_BUILTIN=crypto
 
 # No additional configuration needed, using the official image directly
+
+# Render injects a default "start" argument for docker web services; discard
+# whatever gets appended and always launch n8n with no arguments.
+ENTRYPOINT ["sh", "-c", "exec n8n"]
